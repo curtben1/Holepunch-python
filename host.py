@@ -2,7 +2,7 @@ import socket
 import struct
 import sys
 
-server_listening_port = 3540
+server_listening_port = 7070
 
 sockfd = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sockfd.bind(("", server_listening_port))
@@ -23,6 +23,11 @@ client_a_port = client_requests[0][1]
 client_b_ip = client_requests[1][0]
 client_b_port = client_requests[1][1]
 
-sockfd.sendto(str(client_a_ip)+':'+str(client_a_port), client_requests[1])      #make bytes
-sockfd.sendto(str(client_b_ip)+':'+str(client_b_port), client_requests[0])      #make bytes
+msg = str(client_a_ip)+':'+str(client_a_port)
+msg = msg.encode("ascii")
+msg2 = str(client_b_ip)+':'+str(client_b_port)
+msg2 = msg2.encode("ascii")
+
+sockfd.sendto(msg,client_requests[1])      #make bytes
+sockfd.sendto(msg2, client_requests[0])      #make bytes
 sockfd.close()
