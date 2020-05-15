@@ -15,10 +15,10 @@ while True:
     client_requests.append(addr)
     print("connection from", str(addr))
 
-    if len(client_requests)==2:
+    if len(client_requests)==2:         # take player numbers from server list of active servers
         break
 
-client_a_ip = client_requests[0][0]
+client_a_ip = client_requests[0][0]     # recode so it knows/ recognises and always talks host + one other, will be hard but its 100% possible
 client_a_port = client_requests[0][1]
 client_b_ip = client_requests[1][0]
 client_b_port = client_requests[1][1]
