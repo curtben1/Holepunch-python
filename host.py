@@ -28,6 +28,6 @@ msg = msg.encode("ascii")
 msg2 = str(client_b_ip)+':'+str(client_b_port)
 msg2 = msg2.encode("ascii")
 
-sockfd.sendto(msg,client_requests[1])      #make bytes
-sockfd.sendto(msg2, client_requests[0])      #make bytes
+sockfd.sendto(msg,client_requests[1])     
+sockfd.sendto(msg2, client_requests[0])   
 sockfd.close()
