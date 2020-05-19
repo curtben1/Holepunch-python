@@ -1,3 +1,9 @@
+"""
+For use by someone connecting to a server
+"""
+
+
+
 import socket
 import struct
 import sys

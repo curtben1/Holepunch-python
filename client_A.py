@@ -1,3 +1,9 @@
+"""
+For use by gamehost.py, works to holepunch to a device behind NAT
+
+"""
+
+
 import socket
 import struct
 import sys

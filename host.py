@@ -1,3 +1,8 @@
+"""
+goes on my pc and handles passthrough to punch sockets and traverse nats
+
+"""
+
 import socket
 import struct
 import sys
