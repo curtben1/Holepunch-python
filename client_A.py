@@ -26,15 +26,16 @@ def estCon():
 
     peer_data=peer_data.decode("ascii")
     print("Trying to communicate with peer")
-    peer_ip = peer_data.split(':')[0]
-    peer_port = int(peer_data.split(':')[1])
+    peer_ip = peer_data.split(':')[0]           # get this but for all connections
+    peer_port = int(peer_data.split(':')[1])    # ^
     print(peer_port)
     msg = "connection established"
     for i in range(100):
         print("sending",i)
         msg=msg.encode("ascii")
-        sockfd.sendto(msg, (peer_ip,peer_port))
+        sockfd.sendto(msg, (peer_ip,peer_port))     # do for all connections
         time.sleep(0.5)
+    if sockfd
 
 
 def recvMsg(socket, message, targetIP):
