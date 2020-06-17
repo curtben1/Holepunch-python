@@ -36,16 +36,25 @@ def estCon():
         sockfd.sendto(msg, (peer_ip,peer_port))
         time.sleep(0.5)
 
+
 def recvMsg(socket, message, targetIP):
     master = ("81.151.18.101",7070)     #add tuple of my pc address + a forwarded port
-    me=("192.168.1.162",52527)           
+    me=("192.168.1.162",52527)           # test and mybe remove
     message = targetIP + ':' + message
     message = message.encode("ascii")
     socket.sendall(message)
     while True:
         retValue = socket.recvfrom(1024)
         retValue = retValue.decode("ascii")
-        tag = retValue.split(':')[0]
-        if tag == "forHost":
+        tag = retValue.split(':')[0]        # splits tage from main message
+        if tag == "forHost":        # maybe add an else that returnes Null or an error
             retValue = retValue.split(':')[1]
             return retValue
+
+def sendMsg(socket, message, targetIP):         # sends a message but takes no return, might not use if I always send a confirmation message which when using udp isnt a bad idea
+    master = ("81.151.18.101",7070)     #add tuple of my pc address + a forwarded port
+    me=("192.168.1.162",52527)           
+    message = targetIP + ':' + message      # appends target ip as a tag then sends to everyone, the recipient can then check its for them but I dont need to worry too much abouy t knowing port numbers since I can just use sendAll
+    message = message.encode("ascii")
+    socket.sendall(message)
+    
